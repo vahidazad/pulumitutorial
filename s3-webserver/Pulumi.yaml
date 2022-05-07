@@ -1,0 +1,6 @@
+name: ghost
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Ghost Blog using Pulumi
