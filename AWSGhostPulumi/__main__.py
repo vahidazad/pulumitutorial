@@ -129,7 +129,10 @@ sg_ec2 = aws.ec2.SecurityGroup(
         "to_port"   :   0,
         "cidr_blocks":  ["0.0.0.0/0"],
     }],
-    vpc_id = vpc.id
+    vpc_id = vpc.id,
+    tags = {
+        "Name"  :   data.get("sec_ec2_gp_name"),
+    }
 )
 
 ami = aws.ec2.get_ami(
@@ -158,6 +161,8 @@ app_ec2_instance = aws.ec2.Instance(
         instance_type = data.get("ec2_app_type"),
         vpc_security_group_ids = [sg_ec2.id],
         ami = ami.id,
+        user_data = user_data,
         key_name = data.get("keypair_name"),
-        subnet_id = PrivateSubnet.id,
+        subnet_id = PublicSubnet.id,
+        associate_public_ip_address = True,
 )
