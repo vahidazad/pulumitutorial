@@ -1,0 +1,6 @@
+name: AWSGhostPulumi
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Deployment of Ghost Blog using Pulumi

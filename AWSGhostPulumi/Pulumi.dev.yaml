@@ -1,0 +1,23 @@
+config:
+  aws:region: us-east-1
+  AWSGhostPulumi:data:
+    active: true
+    vpc_name:         "Ghost VPC"
+    vpc_cidr:         10.0.0.0/16
+    prv_subnet_name:  "Ghost Private Subnet"
+    prv_cidr:         10.0.1.0/24
+    pub_subnet_name:  "Ghost Public Subnet"
+    pub_cidr:         10.0.101.0/24
+    nat_gw_name:      ghost_nat_gw
+    prv_table_name:   ghost_private_rt
+    sec_ec2_gp_name:  ghost_EC2_sg
+    sec_rds_gp_name:  ghost_RDS_sg
+    keypair_name:     ghostkeypair
+    ec2_app_name:     ghost_app_server
+    ec2_app_type:     t2.micro
+    igw_name:         "Ghost Internet Gateway"
+    eip_name:         ghost_Elastic_IP
+    pub_route_name:   PublicRouteTable
+    prv_route_name:   PrivateRouteTable
+    pub_route_asso_name: PublicRouteAssociation
+    prv_route_asso_name: PrivateRouteAssociation
